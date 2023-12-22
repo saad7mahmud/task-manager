@@ -1,35 +1,32 @@
-const Dashboard = () => {
-  const handleAddToDo = (e) => {
-    e.preventDefault();
+import Completed from "./Completed";
+import Ongoing from "./Ongoing";
+import ToDos from "./ToDos";
+import AddTask from "./addTask";
 
-    const form = e.target;
-    const text = form.text.value;
-    console.log(text);
-  };
+const Dashboard = () => {
+  // refetch();
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
+
+  // if (error) {
+  //   return <div>Error: {error.message}</div>;
+  // }
 
   return (
     <div>
       <div className="my-20 flex flex-col justify-center items-center">
-        <div>
-          <form onSubmit={handleAddToDo}>
-            <input
-              className="px-10 py-2 rounded"
-              type="text"
-              name="text"
-              required
-              placeholder="Write here"
-            />
-            <input
-              className="hover:cursor-pointer flex m-10 mx-auto select-none rounded-lg bg-gradient-to-tr from-[#32a374] to-[#57b38d] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              type="submit"
-              value="Add"
-            />
-          </form>
-        </div>
-        <div className="flex justify-center gap-10 flex-wrap">
-          <div className="h-64 w-64 border rounded">to-do</div>
-          <div className="h-64 w-64 border rounded">Ongoing</div>
-          <div className="h-64 w-64 border rounded">Completed</div>
+        <div className="flex justify-center gap-3 flex-wrap">
+          <AddTask></AddTask>
+          <div className="  rounded">
+            <ToDos></ToDos>
+          </div>
+          <div className=" rounded">
+            <Ongoing></Ongoing>
+          </div>
+          <div className=" rounded">
+            <Completed></Completed>
+          </div>
         </div>
       </div>
     </div>

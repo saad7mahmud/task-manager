@@ -6,6 +6,7 @@ import Dashboard from "../Dashboard/Dashboard";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import EditTodo from "../Dashboard/EditTodo";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,12 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "todos/:id",
+        element: <EditTodo></EditTodo>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/todos/${params.id}`),
       },
     ],
   },

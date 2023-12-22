@@ -57,7 +57,6 @@ const Navbar = () => {
               alt=""
             />
           </Link>
-          {/* <a className="btn btn-ghost normal-case text-xl">TechValley</a> */}
         </div>
         <div className="navbar-center  hidden lg:flex">
           <ul className="menu menu-horizontal gap-2 px-1">{navLinks}</ul>
