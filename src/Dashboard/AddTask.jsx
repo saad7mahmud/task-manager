@@ -29,83 +29,91 @@ const AddTask = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="max-w-xl border p-10 rounded  mx-auto"
-    >
-      <div className="mb-4">
-        <label
-          htmlFor="title"
-          className="block text-sm font-medium text-gray-600"
-        >
-          Title of Task
-        </label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          {...register("title", { required: "Title is required" })}
-          className="mt-1 p-2 w-full border rounded-md"
-        />
+    <div>
+      {" "}
+      <div className="flex justify-center">
+        <button className="btn  mb-5">ADD TASK</button>
       </div>
-
-      <div className="mb-4">
-        <label
-          htmlFor="description"
-          className="block text-sm font-medium text-gray-600"
-        >
-          Write Description
-        </label>
-        <textarea
-          id="description"
-          name="description"
-          {...register("description", { required: "Description is required" })}
-          className="mt-1 p-2 w-full border rounded-md"
-        />
-      </div>
-
-      <div className="mb-4">
-        <label
-          htmlFor="deadline"
-          className="block text-sm font-medium text-gray-600"
-        >
-          Set Deadline
-        </label>
-        <input
-          type="date"
-          id="deadline"
-          name="deadline"
-          {...register("deadline", { required: "Deadline is required" })}
-          className="mt-1 p-2 w-full border rounded-md"
-        />
-      </div>
-
-      <div className="mb-4">
-        <label
-          htmlFor="priority"
-          className="block text-sm font-medium text-gray-600"
-        >
-          Choose Priority
-        </label>
-        <select
-          id="priority"
-          name="priority"
-          {...register("priority", { required: "Priority is required" })}
-          className="mt-1 p-2 w-full border rounded-md"
-        >
-          <option value="Low">Low</option>
-          <option value="Moderate">Moderate</option>
-          <option value="High">High</option>
-        </select>
-      </div>
-
-      <button
-        type="submit"
-        className="btn btn-error  text-white mx-auto flex mt-5"
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className=" shadow-2xl h-max p-10 rounded  mx-auto"
       >
-        Add Task
-      </button>
-    </form>
+        <div className="mb-4">
+          <label
+            htmlFor="title"
+            className="block text-sm font-medium text-gray-600"
+          >
+            Title of Task
+          </label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            {...register("title", { required: "Title is required" })}
+            className="mt-1 p-2 w-full border rounded-md"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label
+            htmlFor="description"
+            className="block text-sm font-medium text-gray-600"
+          >
+            Write Description
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            {...register("description", {
+              required: "Description is required",
+            })}
+            className="mt-1 p-2 w-full border rounded-md"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label
+            htmlFor="deadline"
+            className="block text-sm font-medium text-gray-600"
+          >
+            Set Deadline
+          </label>
+          <input
+            type="date"
+            id="deadline"
+            name="deadline"
+            {...register("deadline", { required: "Deadline is required" })}
+            className="mt-1 p-2 w-full border rounded-md"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label
+            htmlFor="priority"
+            className="block text-sm font-medium text-gray-600"
+          >
+            Choose Priority
+          </label>
+          <select
+            id="priority"
+            name="priority"
+            {...register("priority", { required: "Priority is required" })}
+            className="mt-1 p-2 w-full border rounded-md"
+          >
+            <option value="Low">Low</option>
+            <option value="Moderate">Moderate</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          className="btn btn-error  text-white mx-auto flex mt-5"
+        >
+          Add Task
+        </button>
+      </form>
+    </div>
   );
 };
 

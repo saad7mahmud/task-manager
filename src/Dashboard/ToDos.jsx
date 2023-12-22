@@ -85,14 +85,13 @@ const ToDos = () => {
               <p>{todo.description}</p>
               <p>Priority: {todo.priority}</p>
               <p>Deadline: {todo.deadline}</p>
-              <p>{todo.userEmail}</p>
               <button
                 onClick={() => handleMarkOngoing(todo._id)}
                 className="btn  btn-primary text-white"
               >
                 Mark as Ongoing
               </button>
-              <Link to={`/todos/${todo._id}`}>
+              <Link to={`/dashboard/updateTodo/${todo._id}`}>
                 {" "}
                 <button className="btn w-full btn-success text-white">
                   Edit

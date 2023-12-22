@@ -1,10 +1,12 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const Register = () => {
-  const { user, createUser, updateUser, setUser, googleSignIn } =
+  const navigate = useNavigate();
+
+  const { user, createUser, updateUser, logOut, setUser, googleSignIn } =
     useContext(AuthContext);
 
   const handleGoogle = () => {
@@ -39,8 +41,10 @@ const Register = () => {
           console.log(result.user);
           setUser(result.user);
           updateUser(name, photo);
-          location.reload();
-          Swal.fire("Successfully registered");
+          // location.reload();
+          Swal.fire("Successfully registered, Kindly Log In");
+          logOut();
+          navigate("/login");
         })
         .catch((error) => console.error(error));
     }

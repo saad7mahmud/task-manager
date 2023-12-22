@@ -57,7 +57,7 @@ const Ongoing = () => {
               <p>{oneOnGoing.description}</p>
               <p>Priority: {oneOnGoing.priority}</p>
               <p>Deadline: {oneOnGoing.deadline}</p>
-              <p>{oneOnGoing.userEmail}</p>
+              {/* <p>{oneOnGoing.userEmail}</p> */}
 
               <button
                 onClick={() => handleMarkComplete(oneOnGoing._id)}

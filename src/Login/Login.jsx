@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -8,7 +9,27 @@ const Login = () => {
   const { googleSignIn, logIn } = useContext(AuthContext);
 
   const handleGoogle = () => {
-    googleSignIn();
+    googleSignIn()
+      .then((result) => {
+        Swal.fire({
+          icon: "success",
+          title: "Successfully logged in",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/dashboard");
+
+        console.log(result);
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Failed to log in",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        console.error(error);
+      });
   };
 
   const handleLogin = (e) => {
@@ -17,12 +38,20 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    logIn(email, password);
+    logIn(email, password)
+      .then((result) => {
+        console.log(result);
+        // location.reload();
+        navigate("/dashboard");
+      })
+      .catch((error) => {
+        Swal.fire(error.message);
+      });
 
     console.log(email, password);
     if (email && password) {
       form.reset();
-    //   navigate("/");
+      //   navigate("/");
     }
   };
 

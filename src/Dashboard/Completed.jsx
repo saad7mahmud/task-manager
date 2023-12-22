@@ -26,7 +26,7 @@ const Completed = () => {
               <p>{oneCompleted.description}</p>
               <p>Priority: {oneCompleted.priority}</p>
               <p>Deadline: {oneCompleted.deadline}</p>
-              <p>{oneCompleted.userEmail}</p>
+              {/* <p>{oneCompleted.userEmail}</p> */}
             </div>
           </div>
         </div>

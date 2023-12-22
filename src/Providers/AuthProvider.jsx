@@ -31,14 +31,7 @@ const AuthProvider = ({ children }) => {
   //  login with pass
   const logIn = (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        console.log(result);
-        // location.reload();
-      })
-      .catch((error) => {
-        Swal.fire(error.message);
-      });
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   // Logout
@@ -75,26 +68,7 @@ const AuthProvider = ({ children }) => {
   const provider = new GoogleAuthProvider();
   const googleSignIn = () => {
     setLoading(true);
-    return signInWithPopup(auth, provider)
-      .then((result) => {
-        Swal.fire({
-          icon: "success",
-          title: "Successfully logged in",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-
-        console.log(result);
-      })
-      .catch((error) => {
-        Swal.fire({
-          icon: "error",
-          title: "Failed to log in",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        console.error(error);
-      });
+    return signInWithPopup(auth, provider);
   };
 
   const authInfo = {
