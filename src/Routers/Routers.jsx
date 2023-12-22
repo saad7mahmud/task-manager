@@ -43,7 +43,9 @@ export const router = createBrowserRouter([
         path: "/dashboard/updateTodo/:id",
         element: <EditTodo></EditTodo>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/updateTodo/${params.id}`),
+          fetch(
+            `https://task-manager-server-snowy.vercel.app/updateTodo/${params.id}`
+          ),
       },
     ],
   },

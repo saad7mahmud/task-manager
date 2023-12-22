@@ -19,7 +19,7 @@ const AddTask = () => {
     console.log(data);
     try {
       // Send data to MongoDB using axios
-      await axios.post("http://localhost:5000/todos", data);
+      await axios.post("https://task-manager-server-snowy.vercel.app/todos", data);
 
       Swal.fire("Task Successfully Added");
       refetch();

@@ -12,7 +12,7 @@ const EditTodo = () => {
   const onSubmit = async (data) => {
     console.log(data);
 
-    fetch(`http://localhost:5000/todos/${todo._id}`, {
+    fetch(`https://task-manager-server-snowy.vercel.app/todos/${todo._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
